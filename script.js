@@ -157,8 +157,23 @@ function renderItems() {
     if (searchTerm) {
         Object.keys(washData).forEach(category => {
             Object.entries(washData[category]).forEach(([name, frequency]) => {
-                if (name.toLowerCase().includes(searchTerm) ||
-                    frequency.toLowerCase().includes(searchTerm)) {
+                let matches = false;
+                const searchLower = searchTerm.toLowerCase();
+
+                if (name.toLowerCase().includes(searchLower)) {
+                    matches = true;
+                } else if (typeof frequency === 'string') {
+                    if (frequency.toLowerCase().includes(searchLower)) matches = true;
+                } else if (typeof frequency === 'object' && frequency !== null) {
+                    // Search in material names and their frequencies
+                    const combinedText = Object.entries(frequency)
+                        .map(([mat, freq]) => `${mat} ${freq}`)
+                        .join(' ')
+                        .toLowerCase();
+                    if (combinedText.includes(searchLower)) matches = true;
+                }
+
+                if (matches) {
                     items.push({ name, frequency });
                 }
             });
@@ -212,12 +227,37 @@ function createTableRow(name, frequency) {
                 <span>${name}</span>
             </div>
         </td>
+            </div>
+        </td>
         <td>
-            <div class="item-frequency-text">${frequency}</div>
+            <div class="item-frequency-text">${formatFrequency(frequency)}</div>
         </td>
     `;
 
     return row;
+}
+
+// ===================================
+// FORMAT FREQUENCY
+// ===================================
+function formatFrequency(frequency) {
+    if (typeof frequency !== 'object' || frequency === null) {
+        return frequency;
+    }
+
+    // Handle material-specific frequencies
+    let html = '<ul class="material-list">';
+    Object.entries(frequency).forEach(([material, freq]) => {
+        html += `
+            <li class="material-item">
+                <span class="material-name">${material}:</span>
+                <span class="material-freq">${freq}</span>
+            </li>
+        `;
+    });
+    html += '</ul>';
+
+    return html;
 }
 
 // ===================================

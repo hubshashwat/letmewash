@@ -369,6 +369,32 @@ body {
     line-height: 1.5;
 }
 
+.material-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.material-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: 4px;
+}
+
+.material-item:last-child {
+    margin-bottom: 0;
+}
+
+.material-name {
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.material-freq {
+    color: var(--text-secondary);
+}
+
 /* ===================================
    NO RESULTS
    =================================== */
