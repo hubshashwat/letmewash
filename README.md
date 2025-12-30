@@ -4,7 +4,8 @@
 
 A beautiful, modern web application that helps you determine the optimal wash frequency for all your clothing items - from everyday socks to specialty cultural wear.
 
-![LetMeWash Interface](https://via.placeholder.com/1200x600/0f172a/10b981?text=LetMeWash+Screenshot)
+<img width="1864" height="839" alt="image" src="https://github.com/user-attachments/assets/dd52e83c-c484-4929-a784-0855d5729159" />
+
 
 ## ✨ Features
 
