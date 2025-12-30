@@ -67,6 +67,27 @@ function setupEventListeners() {
         sourcesModal.classList.add('hidden');
         sourcesBtn.classList.remove('active');
     });
+
+    // Mobile Sidebar
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (mobileMenuBtn && sidebar && mobileOverlay) {
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            mobileOverlay.classList.toggle('hidden'); // Toggle hidden class
+            // Use setTimeout to allow display:block to apply before opacity transition if we were using visible class
+            // For now, simple hidden toggle is fine based on CSS
+            mobileOverlay.classList.toggle('visible');
+        });
+
+        mobileOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            mobileOverlay.classList.add('hidden');
+            mobileOverlay.classList.remove('visible');
+        });
+    }
 }
 
 // ===================================
@@ -109,6 +130,17 @@ function selectCategory(category, navItem) {
 
     // Render items
     renderItems();
+
+    // Close sidebar on mobile if open
+    const sidebar = document.querySelector('.sidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    if (window.innerWidth <= 768 && sidebar && sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+        if (mobileOverlay) {
+            mobileOverlay.classList.add('hidden');
+            mobileOverlay.classList.remove('visible');
+        }
+    }
 }
 
 // ===================================
@@ -314,24 +346,34 @@ function parseSources(text) {
         if (!line) return;
 
         // Format: "Title, accessed December 30, 2025, https://..."
-        const parts = line.split(', accessed ');
-        if (parts.length === 2) {
-            const title = parts[0];
-            // parts[1] is: "December 30, 2025, https://..."
-            const dateAndUrl = parts[1].split(', ');
+        // Use a more robust regex to handle variations
+        // Matches: Title + ", accessed " + Date + ", " + URL
+        const pattern = /(.+?),\s*accessed\s+(.+?),\s*(https?:\/\/.+)/i;
+        const match = line.match(pattern);
 
-            if (dateAndUrl.length >= 3) {
-                // dateAndUrl[0] = "December 30"
-                // dateAndUrl[1] = "2025"
-                // dateAndUrl[2+] = URL parts
-                const date = `${dateAndUrl[0]}, ${dateAndUrl[1]}`; // "December 30, 2025"
-                const url = dateAndUrl.slice(2).join(', ').trim(); // URL from index 2
+        if (match) {
+            const title = match[1].trim();
+            const date = match[2].trim();
+            const url = match[3].trim();
 
-                sources.push({
-                    title: title,
-                    url: url,
-                    date: date
-                });
+            sources.push({
+                title: title,
+                url: url,
+                date: date
+            });
+        } else {
+            // Fallback for simple comma separation if "accessed" is missing or different
+            // Assuming: Title, Date, URL
+            const parts = line.split(',');
+            if (parts.length >= 3) {
+                // Try to find the part looking like a URL
+                const urlIndex = parts.findIndex(p => p.trim().startsWith('http'));
+                if (urlIndex > 0) {
+                    const url = parts.slice(urlIndex).join(',').trim();
+                    const date = parts[urlIndex - 1].trim();
+                    const title = parts.slice(0, urlIndex - 1).join(',').trim();
+                    sources.push({ title, url, date });
+                }
             }
         }
     });
