@@ -1,0 +1,96 @@
+{
+  "towels": {
+    "Bath towel": "Every 3-5 uses (ensure it dries fully between uses)",
+    "Hand towel": "Every 1-2 days (daily if high traffic)",
+    "Face towel": "After every use",
+    "Gym towel": "After every use",
+    "Beach towel": "After every use",
+    "Washcloth": "After every use"
+  },
+  "socks": {
+    "Casual socks": "After every wear",
+    "Ankle socks": "After every wear",
+    "No-show socks": "After every wear",
+    "Crew socks": "After every wear",
+    "Dress socks": "After every wear",
+    "Sports socks": "After every wear",
+    "Compression socks": "After every wear (to maintain elasticity)",
+    "Wool socks": "Every 2-3 wears (if aired out between wears)"
+  },
+  "innerwear_and_sleepwear": {
+    "Vests / undershirts": "After every wear",
+    "Thermal innerwear": "Every 2-4 wears (wash sooner if worn directly on skin)",
+    "Pyjamas": "Every 3-4 wears (if showering before bed)",
+    "Nightwear / lounge pants": "Every 3-4 wears"
+  },
+  "athletic_and_performance_wear": {
+    "Gym T-shirts": "After every wear",
+    "Track pants": "After every wear (if exercised in) / 3-4 wears (if lounging)",
+    "Compression wear": "After every wear",
+    "Sports shorts": "After every wear",
+    "Sports innerwear": "After every wear",
+    "Sweatbands / headbands": "After every wear"
+  },
+  "formal_and_workwear": {
+    "Formal trousers": "Every 2-4 wears",
+    "Blazers / suit jackets": "Every 5-6 wears (brush and steam between wears)",
+    "Waistcoats": "As needed / Seasonally (spot clean)",
+    "Dress shirts": "Every 1-2 wears",
+    "Neckties": "Spot clean only / Dry clean 1-2 times a year",
+    "Bow ties": "Spot clean only / Dry clean 1-2 times a year"
+  },
+  "outerwear": {
+    "Overcoats": "1-2 times a season (clean before storage)",
+    "Windcheaters": "1-2 times a season (or when water stops beading)",
+    "Rain jackets": "1-2 times a season (clean helps reactivate waterproofing)",
+    "Parkas": "1-2 times a season",
+    "Ponchos": "As needed / Seasonally"
+  },
+  "accessories": {
+    "Caps / hats": "Every 1-2 weeks (or 3-5 times a season)",
+    "Beanies": "Monthly / 3-5 times a season",
+    "Scarves / mufflers": "Every 3-5 wears (wash weekly in flu season)",
+    "Bandanas": "After every wear",
+    "Fabric belts": "Monthly / As needed"
+  },
+  "footwear_fabrics": {
+    "Fabric slippers": "Monthly (or when odors develop)",
+    "Washable shoe insoles": "Every 1-2 weeks"
+  },
+  "seasonal_and_layering": {
+    "Cardigans": "Every 3-5 wears",
+    "Long-sleeve tees": "After every wear",
+    "Base layers": "After every wear"
+  },
+  "specialty_and_cultural_wear": {
+    "Kurtas": "Cotton: Every 1-2 wears / Silk: Dry clean sparingly (air out after use)",
+    "Pajamas (kurta set bottoms)": "Every 2-3 wears",
+    "Dhotis": "Cotton: After every wear / Silk: Dry clean sparingly",
+    "Lungis": "Every 1-2 wears (treat as daily wear)",
+    "Pathani suits": "Every 2-3 wears",
+    "Sherwanis": "Spot clean only (Dry clean once before long-term storage)"
+  },
+  "miscellaneous": {
+    "Reusable cloth masks": "After every use (Daily)",
+    "Handkerchiefs": "After every use"
+  },
+  "core_items": {
+    "Face towel": "After every use",
+    "Hand towel": "Every 1-2 days",
+    "Bath towel": "Every 3-5 uses",
+    "Handkerchief": "After every use",
+    "Socks": "After every wear (Wool: 2-3 wears)",
+    "Gloves": "3-5 times a season",
+    "Jackets": "Seasonally / As needed",
+    "Shirts": "Every 1-2 wears",
+    "T-shirts": "After every wear",
+    "Shorts": "Every 2-3 wears",
+    "Boxers": "After every wear",
+    "Underwear / Briefs": "After every wear",
+    "Pants": "Every 3-5 wears",
+    "Jeans": "Every 4-10 wears",
+    "Joggers": "Every 3-5 wears",
+    "Sweaters": "Every 5-7 wears",
+    "Hoodies": "Every 5-7 wears"
+  }
+}
