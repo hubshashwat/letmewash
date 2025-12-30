@@ -738,10 +738,6 @@ body {
     .col-frequency {
         width: 60%;
     }
-
-    .mobile-menu-btn {
-        display: flex;
-    }
 }
 
 /* ===================================
@@ -786,5 +782,9 @@ body {
     .sidebar.open {
         transform: translateX(0);
         box-shadow: var(--shadow-xl);
+    }
+
+    .mobile-menu-btn {
+        display: flex;
     }
 }
